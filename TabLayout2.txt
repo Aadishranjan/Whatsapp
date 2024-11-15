@@ -1,0 +1,51 @@
+import { Tabs } from 'expo-router';
+import ProfileIcon from '@expo/vector-icons/MaterialCommunityIcons';
+import React from 'react';
+
+const TabRoot = () => {
+  return (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: '#1bb534', // Active icon/text color
+        tabBarInactiveTintColor: '#888888', // Inactive icon/text color
+        tabBarStyle: { 
+          backgroundColor: '#f8f8f8', // Background color of the tab bar
+          borderTopColor: '#e0e0e0', // Optional: border color on top of tab bar
+          paddingBottom: 5, // Adjust padding to align icons
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          headerShown: false,
+          title: 'Chats',
+          tabBarIcon: ({ color, focused }) => (
+            <ProfileIcon
+              size={32}
+              name={focused ? 'account-circle' : 'account-circle-outline'}
+              color={color} // Uses the color defined in `tabBarActiveTintColor` or `tabBarInactiveTintColor`
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          headerShown: false,
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => (
+            <ProfileIcon
+              size={32}
+              name={focused ? 'account-circle' : 'account-circle-outline'}
+              color={color} // Uses the color defined in `tabBarActiveTintColor` or `tabBarInactiveTintColor`
+            />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+};
+
+export default TabRoot;
